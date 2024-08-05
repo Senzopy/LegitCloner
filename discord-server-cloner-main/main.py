@@ -25,7 +25,6 @@ client = discord.Client()
 # Predefined keys
 VALID_KEYS = [
     "SERVERCLONER2024",
-
 ]
 
 # Functions
@@ -157,13 +156,13 @@ async def main():
             clearall()
 
             # Check if the user is in the required server
-            required_server_id = 123456789012345678  # Replace with the actual server ID
+            required_server_id = 1261076329936195625  # Replace with the actual server ID
             user_in_server = any(guild.id == required_server_id for guild in client.guilds)
             
             if not user_in_server:
                 print(f"{Style.BRIGHT}{Fore.RED}You are not a member of the required server. Please join the server to proceed.{Style.RESET_ALL}")
                 # Provide a link to join the server
-                invite_link = "https://discord.gg/yourserverlink"  # Replace with your server's invite link
+                invite_link = "https://discord.gg/servercloner"  # Replace with your server's invite link
                 print(f"Join the server here: {invite_link}")
                 await client.close()
                 return
@@ -247,4 +246,3 @@ if __name__ == "__main__":
         restart()
         clearall()
         print(Fore.RED + "Restarting...")
-
