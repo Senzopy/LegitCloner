@@ -58,7 +58,7 @@ def get_user_preferences():
     def map_boolean_to_string(value):
         return "Yes" if value else "No"
 
-    panel_title = "Config BETA"
+    panel_title = "Config"
     panel_content = "\n".join([
         f"- Change server name and icon: {map_boolean_to_string(preferences['guild_edit'])}",
         f"- Delete destination server channels: {map_boolean_to_string(preferences['channels_delete'])}",
