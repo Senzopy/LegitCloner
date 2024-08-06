@@ -81,8 +81,8 @@ class Clone:
                 await asyncio.sleep(random.uniform(2, 3))
             except discord.HTTPException as e:
                 if e.status == 429:
-                    print_warning(f"Many requests were made. Waiting 60 seconds. Details: {e}")
-                    await asyncio.sleep(60)
+                    print_warning(f"Many requests were made. Waiting 120 seconds. Details: {e}")
+                    await asyncio.sleep(120)
             except Exception as e:
                 print_error(f"Unable to create category {Fore.YELLOW}{channel.name}{Fore.RESET}. Details: {e}")
                 await asyncio.sleep(random.uniform(9, 12))
