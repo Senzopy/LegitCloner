@@ -1,4 +1,3 @@
-# Imports
 import asyncio
 import random
 
@@ -192,7 +191,7 @@ class Clone:
         try:
             icon_content = None
             try:
-                icon_content = requests.get(str(guild_from.icon_url)).content
+                icon_content = requests.get(str(guild_from.icon.url)).content
             except requests.exceptions.RequestException:
                 print_error(f"Unable to download icon for {guild_from.name}")
             await guild_to.edit(name=guild_from.name)
