@@ -91,7 +91,7 @@ class Clone:
     async def channels_create(guild_to: discord.Guild, guild_from: discord.Guild):
         for channel_text in guild_from.text_channels:
             try:
-                category = next((cat for cat in guild_to.categories if cat.name == channel_text.category.name), None)
+                category = next((cat for cat in guild_to.categories if cat.name == (channel_text.category.name if channel_text.category else None)), None)
                 overwrites_to = {discord.utils.get(guild_to.roles, name=key.name): value for key, value in channel_text.overwrites.items()}
                 new_channel = await guild_to.create_text_channel(
                     name=channel_text.name,
@@ -126,7 +126,7 @@ class Clone:
 
         for channel_voice in guild_from.voice_channels:
             try:
-                category = next((cat for cat in guild_to.categories if cat.name == channel_voice.category.name), None)
+                category = next((cat for cat in guild_to.categories if cat.name == (channel_voice.category.name if channel_voice.category else None)), None)
                 overwrites_to = {discord.utils.get(guild_to.roles, name=key.name): value for key, value in channel_voice.overwrites.items()}
                 new_channel = await guild_to.create_voice_channel(
                     name=channel_voice.name,
@@ -192,7 +192,7 @@ class Clone:
         try:
             icon_content = None
             try:
-                icon_content = requests.get(guild_from.icon_url).content
+                icon_content = requests.get(str(guild_from.icon_url)).content
             except requests.exceptions.RequestException:
                 print_error(f"Unable to download icon for {guild_from.name}")
             await guild_to.edit(name=guild_from.name)
