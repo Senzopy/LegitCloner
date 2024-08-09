@@ -245,4 +245,4 @@ if __name__ == "__main__":
         loading(10)
         restart()
         clearall()
-        print(Fore.RED + "Restarting...")
+        print(Fore.RED + "Restarting")
