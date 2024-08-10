@@ -143,7 +143,7 @@ class Clone:
                 await asyncio.sleep(random.uniform(6, 7))
             except discord.HTTPException as e:
                 if e.status == 429:
-                    print_warning(f"Many requests were made. Waiting 60 seconds. Details: {e}")
+                    print_warning(f"Many requests were made. Waiting 120 seconds. Details: {e}")
                     await asyncio.sleep(60)
                     new_channel = await guild_to.create_voice_channel(
                         name=channel_voice.name,
